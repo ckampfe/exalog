@@ -10,11 +10,11 @@ defmodule InMemoryTest do
 
   test "inserts facts" do
     assert (
-      [{:artist, :name, "outkast"},
-       {:artist, :albums, ["aquemini", "stankonia"]} ] |> MapSet.new
+      [[:artist, :name, "outkast"],
+       [:artist, :albums, ["aquemini", "stankonia"]]] |> MapSet.new
     ) == (InMemory.new |> InMemory.insert(
-      [{:artist, :name, "outkast"},
-       {:artist, :albums, ["aquemini", "stankonia"]}]
+      [[:artist, :name, "outkast"],
+       [:artist, :albums, ["aquemini", "stankonia"]]]
     ) |> MapSet.new)
 
     assert (
